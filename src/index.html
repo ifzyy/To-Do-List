@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
-         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>To-do list</title>
-    </head>
-    <body>
-        <section class="todo">
-            <div class="header">
-                <h2 class="header-text">Today's To Do</h2>
-                <i class="fa-solid fa-arrows-rotate fa-icon"></i>
-            </div>
-            <div class="input-container">
-                <label for="userInput" class="userInput"></label>
-                <input name="userInput" id="userInput" placeholder="Add to your list.." />
-            </div>
-            <div class="todo-container"></div>
-            <div class="clearAll">
-                <p class="clear">Clear all completed</p>
-            </div>
-        </section>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <section id="main-section">
+        <div class="header">
+            <h1>Today's To Do</h1>
+            <button><i class="fa-solid fa-arrows-rotate"></i></button>
+        </div>
+        <form>
+            <input id="main-input" type="text" placeholder="Add to your list...">
+            <div class="list"></div>
+            <button type="button" class="clear-all">Clear All Completed</button>
+        </form>
+    </section>
+</body>
+
 </html>
