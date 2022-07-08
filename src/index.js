@@ -7,6 +7,7 @@ import './style.css';
 // Declare HTML elements
 const mainInput = document.getElementById('main-input');
 const listOfItems = document.querySelector('.list');
+const clearAll = document.querySelector('.clear-all');
 
 // Create array to store items
 let itemArray = [] || JSON.parse(localStorage.getItem('items'));
@@ -56,7 +57,9 @@ const removeItems = (li) => {
   let count = 1;
   const parsedItems = localStorage.getItem('items');
   let localData = JSON.parse(parsedItems);
-  itemArray = JSON.parse(localStorage.getItem('items'));
+  // // Filter elements that are true
+  // localData = localData.filter((item) => item.completed === false);
+  itemArray = JSON.parse(localStorage.getItem('items')); // not working
   itemArray.splice((li.id) - 1, 1);
   localData = itemArray;
   // Update index of elements
@@ -172,8 +175,17 @@ const getItemsLocal = () => {
   removeItem.forEach((item) => {
     item.addEventListener('click', () => {
       removeItems(item.children[0].parentNode.parentNode);
-      localStorage.setItem('items', JSON.stringify(itemArray));
     });
+  });
+  clearAll.addEventListener('click', () => {
+    const localItems = localStorage.getItem('items');
+    const parsedData = JSON.parse(localItems);
+    const checkDelete = parsedData.filter((item) => item.completed === false);
+    for (let i = 0; i < checkDelete.length; i += 1) {
+      checkDelete[i].index = i + 1;
+    }
+    localStorage.setItem('items', JSON.stringify(checkDelete));
+    window.location.reload();
   });
   localStorage.setItem('items', JSON.stringify(itemArray));
 };
